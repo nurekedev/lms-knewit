@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %} Главная {% endblock title %}
+{% block content %}
+    <h2> Активные курсы </h2>
+{% for course in courses %}
+    <a href="{{ course.get_absolute_url }}"> {{ course.course_name }} </a>
+    {{ course.category.title }}
+    <br>
+    {% empty %}
+    Нет активных курсов
+{% endfor %}
+{% endblock content %}
