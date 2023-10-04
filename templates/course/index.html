@@ -1,12 +1,38 @@
 {% extends 'base.html' %}
 {% block title %} Главная {% endblock title %}
 {% block content %}
-    <h2> Активные курсы </h2>
-{% for course in courses %}
-    <a href="{{ course.get_absolute_url }}"> {{ course.course_name }} </a>
-    {{ course.category.title }}
-    <br>
-    {% empty %}
-    Нет активных курсов
-{% endfor %}
+
+    {% if user.is_authenticated %}
+        <section class="content">
+        <h3 class="mycourses__title">
+            Мои курсы
+        </h3>
+        {% for course in courses %}
+            <div class="mycourses-box">
+
+                <img src="{{ course.image.url }}" alt="coursephoto"/>
+                <div class="mycourses-box-content">
+                    <h4 class="mycourses-box-content__title">{{ course.course_name }}</h4>
+                    <p class="mycourses-box-content__teacher-name">{{ course.teacher.first_name }} {{ course.teacher.last_name }}</p>
+                    <h4 class="mycourses-box-content__progress"></h4>
+                    <div class="mycourses-box-content__progress-line">
+                        <div></div>
+                    </div>
+                </div>
+                <a href="{{ course.get_absolute_url }}" style="cursor: pointer">Открыть курс</a>
+            </div>
+        {% empty %}
+            Нет активных курсов
+        {% endfor %}
+    {% else %}
+        <p>You are not logged in</p>
+        <a href="{% url 'login' %}">Log In</a>
+    {% endif %}
+
+
+</section>
+
+
 {% endblock content %}
+
+

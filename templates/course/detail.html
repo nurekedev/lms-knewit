@@ -1,6 +1,72 @@
 {% extends 'base.html' %}
 {% block title %} Титул {% endblock title %}
 {% block content %}
-    <h1> Это детальная страница </h1>
-    {{ course_data.course_name }}
+
+    <section class="course_deatails">
+        <div class="l-title-bar">
+            <div class="title">
+                <img src="{{ course_data.image.url }}" alt="coursephoto"/>
+
+                <p class="rubik-18-500">{{ course_data.course_name }}</p>
+                <p class="rubik-14-300">{{ course_data.teacher.first_name }} {{ course_data.teacher.last_name }}</p>
+            </div>
+            <h3>Modules: </h3>
+            {% for week in weeks_for_course %}
+                <div class="title-modules">
+
+                    <p class="rubik-16-400">{{ week.module_name }}</p>
+                    {% for material in materials_for_course %}
+                        {{ material.material_title }}
+                    {% endfor %}
+
+                </div>
+            {% endfor %}
+
+        </div>
+
+
+        <article class="r-title-bar">
+
+            {% for material in materials_for_course %}
+                {% if material.material_type == material.MaterialType.VIDEO_LINK %}
+
+                    <div class="materials-title">
+                        <p>
+                            {{ material.material_title }}
+                        </p>
+                    </div>
+                    <div class="materials-video">
+                        <iframe src="https://www.youtube.com/embed/XaTwnKLQi4A?si=VILi_h_AwEiM3Pzc"
+                                frameborder="0"></iframe>
+                        <p class="rubik-14-300">{{ material.body_text }}</p>
+                    </div>
+                {% elif material.material_type == material.MaterialType.LECTURE %}
+                    <div class="materials-lector">
+                        <p class="rubik-18-500">{{ material.material_title }}</p>
+                        <div class="lector-main">
+                            <img src="https://cdn-icons-png.flaticon.com/512/732/732212.png">
+                            <p class="rubik-14-300">{{ material.body_text }}</p>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+
+        </article>
+
+
+    </section>
+    <script>
+        let navigation = document.querySelector('.materials-lector');
+        navigation.onclick = function () {
+            navigation.classList.toggle('active');
+        }
+        let module = document.querySelector('.module');
+        let moduleAll = document.querySelector('.title-module')
+        module.onclick = function () {
+            moduleAll.classList.toggle('active');
+        }
+    </script>
+
+
 {% endblock content %}
+
