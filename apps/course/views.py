@@ -18,11 +18,12 @@ def course_detail(requset, day, month, year, course_data):
                                     )
 
     modules_for_course = course_data.module.all()
-    materials_for_course = models.Material.objects.filter(module__in=course_data.module.all())
+
+    materials_for_course = models.Material.objects.filter(module__in=modules_for_course)
 
     return render(requset, 'course/detail.html',
                   {"course_data": course_data,
-                   "weeks_for_course": modules_for_course,
+                   "modules_for_course": modules_for_course,
                    "materials_for_course": materials_for_course})
 
 

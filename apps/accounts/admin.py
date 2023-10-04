@@ -32,3 +32,5 @@ admin.site.register(User, CustomUserAdmin)
 class ProfileAdmin(SummernoteModelAdmin):
     summernote_fields = ('bio',)
     list_display = ['bio', ]
+    
+

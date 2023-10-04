@@ -9,6 +9,14 @@ from django.contrib import messages
 from django.contrib.auth.views import PasswordChangeView
 from django.contrib.messages.views import SuccessMessageMixin
 
+from django.utils.safestring import mark_safe
+import markdown
+from django import template
+
+register = template.Library()
+
+
+
 class CustomLoginView(LoginView):
     form_class = forms.LoginForm
 
@@ -49,3 +57,6 @@ class ChangePasswordView(SuccessMessageMixin, PasswordChangeView):
     template_name = 'registration/change_password.html'
     success_message = "Successfully Changed Your Password"
     success_url = reverse_lazy('users-profile')
+
+
+
