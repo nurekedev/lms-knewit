@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}Profile Page{% endblock title %}
+{% block content %}
+    <style>
+    img{
+        width: 100px;
+        height: 100px;
+    }
+    </style>
+     <div>
+        <img src="{{ user.profile.avatar.url }} " style="cursor: pointer;"/>
+    </div>
+    {% if user_form.errors %}
+        <div role="alert">
+            <div>
+                {% for key, value in user_form.errors.items %}
+                    <strong>{{ value }}</strong>
+                {% endfor %}
+            </div>
+            <button type="button" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endif %}
+    <div class="form-content">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div>
+                <div>
+                    <div>
+                        <label>First name:</label>
+                        {{ user_form.first_name }}
+                        <hr>
+
+                        <label>Last name:</label>
+                        {{ user_form.last_name }}
+                        <hr>
+
+                        <label>Phone number:</label>
+                        {{ user_form.phone_number }}
+                        <hr>
+                    </div>
+                    <hr>
+                    <div><a href="{% url 'password_change' %}">Change Password</a>
+                        <hr>
+                        <label>Change Avatar:</label>
+                        {{ profile_form.avatar }}
+                    </div>
+                    <hr>
+                    <label>Bio:</label> {{ profile_form.bio |truncatewords_html:30|safe}}
+                </div>
+            </div>
+            <br><br>
+            <button type="submit">Save Changes</button>
+            <button type="reset">Reset</button>
+        </form>
+    </div>
+
+{% endblock content %}

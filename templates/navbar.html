@@ -1,0 +1,13 @@
+<header class="header">
+    <a href="{% url 'course:home' %}" class="logo"><img src="/media/image.png" alt="logo"></a>
+    <nav class="menu">
+        <ul>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'users-profile' %}">Профиль</a></li>
+            <li><a href="{% url 'logout' %}" class="logout">Выйти</a></li>
+            {% else %}
+            <li><a href="{% url 'login' %}" class="login">Войти</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+</header>

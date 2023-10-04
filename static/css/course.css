@@ -1,0 +1,477 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li, a {
+    list-style: none;
+    text-decoration: none;
+}
+
+.container {
+    max-width: 1370px;
+    margin: auto;
+}
+
+.content {
+    max-width: 1192px;
+    min-height: 80vh;
+    margin: auto;
+    margin-top: 50px;
+    padding-bottom: 100px;
+}
+
+.start {
+    border-bottom: 1px solid #AEAEAE;
+    background: #FFF;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header ul {
+    display: flex;
+    align-items: center;
+
+    gap: 44px;
+}
+
+.menu a {
+    color: #000;
+    font-family: 'Rubik';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.menu li:last-child {
+    width: 162.237px;
+    height: 36px;
+    border-radius: 3px;
+    background: #5A49F8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu .login {
+    color: #FFF;
+    font-family: 'Rubik';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+}
+
+.footer-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-wrapper__left {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+}
+
+.footer-wrapper__right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.footer-wrapper__left p {
+    color: rgba(0, 0, 0, 0.60);
+    font-family: 'Rubik';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.big-box {
+    width: 100%;
+    height: 305px;
+    background: #D9D9D9;
+    margin-top: 40px;
+}
+
+.available {
+    margin-top: 38px;
+
+    color: #000;
+    font-family: 'Rubik';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.content-bottom {
+    margin-top: 19px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.small-box {
+    width: 260px;
+    height: 200px;
+}
+
+.small-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mycourses__title {
+    color: #000;
+    /* Text Header */
+    font-family: 'Montserrat';
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.mycourses-box {
+    margin-top: 30px;
+    width: 100%;
+    height: 240px;
+    background: #FFF;
+    box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.mycourses-box > img {
+    width: 116px;
+    height: 116px;
+}
+
+.mycourses-box-content__title {
+    color: #000;
+    font-family: 'Rubik';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.mycourses-box-content__teacher-name {
+    color: #000;
+    font-family: 'Rubik';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.mycourses-box-content__progress {
+    margin-top: 15px;
+    color: #000;
+    font-family: 'Rubik';
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.mycourses-box-content__progress-line {
+    margin-top: 4px;
+    width: 713px;
+    height: 4px;
+    background: rgba(217, 217, 217, 0.60);
+}
+
+.mycourses-box-content__progress-line > div {
+    width: 17px;
+    height: 4px;
+    background: #5A49F8;
+}
+
+.mycourses-box > a {
+    width: 162.237px;
+    height: 36px;
+    border-radius: 3px;
+    background: #5A49F8;
+
+    color: #FFF;
+    font-family: 'Rubik';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mycourse {
+    display: flex;
+    gap: 150px;
+}
+
+.mycourse-sidebar-info > img {
+    width: 80px;
+    height: 80px;
+}
+
+.mycourse-sidebar-info__title {
+    color: #000;
+    margin-top: 18px;
+    font-family: "Rubik";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.mycourse-sidebar-info__teacher-name {
+    margin-top: 8px;
+    color: #000;
+    font-family: 'Rubik';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.mycourse-sidebar-bottom__title {
+    margin-top: 74px;
+    color: #000;
+    font-family: 'Rubik';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.mycourse-sidebar-bottom__week {
+    margin-top: 16px;
+    padding-left: 30px;
+}
+
+.mycourse-sidebar-bottom__week li {
+    margin-top: 8px;
+}
+
+.mycourse-sidebar-bottom__week a {
+    color: #000;
+    font-family: 'Rubik';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.mycourse-content-header {
+    width: 640px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.mycourse-content-header > h3 {
+    color: #000;
+    font-family: 'Montserrat';
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.mycourse-content-header a {
+    width: 120px;
+    height: 36px;
+    border-radius: 3px;
+    background: #5A49F8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #FFF;
+    font-family: 'Rubik';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.mycourse-content > img {
+    margin-top: 38px;
+    width: 100%;
+}
+
+.mycourse-content-bottom > h4 {
+    margin-top: 65px;
+    color: #000;
+    font-family: 'Rubik';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.mycourse-content-bottom__btns {
+    margin-top: 21px;
+    display: flex;
+    gap: 14px;
+}
+
+.mycourse-content-bottom__btns a {
+    width: 80px;
+    height: 24px;
+    flex-shrink: 0;
+    border-radius: 3px;
+    background: #5A49F8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #FFF;
+    font-family: 'Rubik';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+/* Login page */
+.course_deatails {
+    display: flex;
+    justify-content: center;
+    margin-top: 8.75rem;
+}
+
+.title {
+    margin-bottom: 2.5rem;
+}
+
+.title img {
+    width: 7rem;
+    height: 7rem;
+    margin-bottom: 1rem;
+}
+
+.l-title-bar {
+    width: 20rem;
+    margin-right: 7rem;
+}
+
+.r-title-bar {
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
+    width: 50rem;
+    height: auto;
+}
+
+.rubik-18-500 {
+    font-family: Rubik;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.rubik-14-300 {
+    font-family: Rubik;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.rubik-16-400 {
+    font-family: Rubik;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.materials-name {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.materials-name li {
+    font-family: Rubik;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    margin-bottom: 1rem;
+}
+
+.materials-title {
+    margin-bottom: 2.25rem;
+}
+
+.materials-title p {
+    font-family: Rubik;
+    font-size: 1.875rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.materials-video {
+    margin-bottom: 3rem;
+}
+
+.materials-video iframe {
+    width: 50rem;
+    height: 25rem;
+}
+
+.lector-main img {
+    width: 7rem;
+}
+
+.materials-lector .lector-main p {
+    margin-bottom: 1rem;
+}
+
+.materials-lector {
+    height: 1.375rem;
+    transition: height 0.5s;
+    transition-delay: 0.75s;
+    overflow: hidden;
+}
+
+.materials-lector.active {
+    height: 15rem;
+    transition: height 0.5s;
+    transition-delay: 0.75s;
+}
+
+.title-module {
+    overflow: hidden;
+    height: 1.25rem;
+    transition: height 0.5s;
+    transition-delay: 0.75s;
+}
+
+.title-module.active {
+    height: 10rem;
+    transition: height 0.5s;
+    transition-delay: 0.75s;
+}
