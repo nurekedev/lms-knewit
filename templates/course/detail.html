@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% block title %} Титул {% endblock title %}
 {% block content %}
-
 <section class="course_deatails">
     <div class="l-title-bar">
         <div class="title">
@@ -52,10 +51,9 @@
         </div>
         {% endif %}
         {% endfor %}
+        {% include 'course/pagination.html' with page=materials_for_course%}
 
     </article>
-
-
 </section>
 <script>
     let navigation = document.querySelector('.materials-lector');
