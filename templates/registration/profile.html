@@ -1,15 +1,6 @@
 {% extends "base.html" %}
 {% block title %}Profile Page{% endblock title %}
 {% block content %}
-    <style>
-    img{
-        width: 100px;
-        height: 100px;
-    }
-    </style>
-     <div>
-        <img src="{{ user.profile.avatar.url }} " style="cursor: pointer;"/>
-    </div>
     {% if user_form.errors %}
         <div role="alert">
             <div>
@@ -22,38 +13,78 @@
             </button>
         </div>
     {% endif %}
-    <div class="form-content">
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            <div>
-                <div>
-                    <div>
-                        <label>First name:</label>
-                        {{ user_form.first_name }}
-                        <hr>
-
-                        <label>Last name:</label>
-                        {{ user_form.last_name }}
-                        <hr>
-
-                        <label>Phone number:</label>
+    <div class="profile">
+        <div class="wrapper-profile">
+            <div class="left-wrap-pro">
+                <img src="{{ user.profile.avatar.url }} " />
+                <form method="post" enctype="multipart/form-data" class="profile-name">
+                    {% csrf_token %}
+                    <a>{{ user_form.first_name }}</a>
+                    <a>{{ user_form.last_name }}</a>
+                </form>
+            </div>
+            <div class="right-wrap-pro">
+                <p>Редактировать</p>
+                <form method="post" enctype="multipart/form-data" class="profile-form">
+                    {% csrf_token %}
+                    <div class="phone-number">
+                        <label>Номер</label>
                         {{ user_form.phone_number }}
-                        <hr>
                     </div>
-                    <hr>
-                    <div><a href="{% url 'password_change' %}">Change Password</a>
-                        <hr>
-                        <label>Change Avatar:</label>
+                    <div class="profile-avatar">
+                        <label>Поменять аватар</label>
                         {{ profile_form.avatar }}
                     </div>
-                    <hr>
-                    <label>Bio:</label> {{ profile_form.bio | truncatewords_html:30|safe}}
-                </div>
+                    <div class="profile-bio">
+                        <label class="bio-title">Информация о себе</label> 
+                        <div class="bio-scroll">
+                            {{ profile_form.bio | truncatewords_html:30|safe}}
+                        </div>
+                    </div>
+                    <div class="profile-button">
+                        <button type="submit">Сохранить изменение</button>
+                        <button type="reset">Очистить</button>
+                    </div>
+                </form>
+                <form method="post" enctype="multipart/form-data" class="change-pass">
+                    <div class="pass-title">
+                            Поменять пароль
+                    </div>
+                    <div class="scroll">
+                            <div class="phone-number">
+                                <label>Старый пароль</label>
+                                <input type="password" name="old_password" autocomplete="new-password" required id="id_old_password"
+                                placeholder="Enter Old Password"/>
+                            </div>
+                            <div class="new-pass">
+                                <div class="column">
+                                    <label>Новый пароль</label>
+                                    <input type="password" name="new_password1" autocomplete="new-password"
+                                    required id="id_new_password1" placeholder="Enter New Password"/>
+                                </div>
+                                <div class="column">
+                                    <label>Повторите новый пароль</label>
+                                    <input type="password" name="new_password2" autocomplete="new-password"
+                                    required id="id_new_password2" placeholder="Confirm New Password"/>
+                                </div>
+                            </div>
+                            <button type="submit" id="reset">Изменить пароль</button>
+                    </div>
+                </form>
             </div>
-            <br><br>
-            <button type="submit">Save Changes</button>
-            <button type="reset">Reset</button>
-        </form>
+        </div>
     </div>
+    <script>
+        let toogle = document.querySelector('.pass-title');
+        let scroll = document.querySelector('.scroll');
+        toogle.onclick = function () {
+            scroll.classList.toggle('active');
+        }
+        let toogle2 = document.querySelector('.bio-title');
+        let scroll2 = document.querySelector('.bio-scroll');
+        toogle2.onclick = function () {
+            scroll2.classList.toggle('active');
+        }
+    </script>
 
 {% endblock content %}

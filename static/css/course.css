@@ -13,8 +13,10 @@ li, a {
 }
 
 .container {
-    max-width: 1370px;
-    margin: auto;
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    align-items: center;
 }
 
 .content {
@@ -26,14 +28,20 @@ li, a {
 }
 
 .start {
+    width: 100%;
     border-bottom: 1px solid #AEAEAE;
     background: #FFF;
 }
 
 .header {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.header .logo{
+    margin-left: 2rem;
 }
 
 .header ul {
@@ -41,6 +49,10 @@ li, a {
     align-items: center;
 
     gap: 44px;
+}
+
+.menu{
+    margin-right: 2rem;
 }
 
 .menu a {
@@ -74,6 +86,7 @@ li, a {
 .footer {
     position: absolute;
     bottom: 0;
+    width: 100%;
 }
 
 .footer-wrapper {
@@ -354,10 +367,19 @@ li, a {
 }
 
 /* Login page */
-.course_deatails {
+.details-cont{
+    width: 100%;
     display: flex;
+    align-items: center;
     justify-content: center;
-    margin-top: 8.75rem;
+    height: calc(100% - 6rem);
+}
+.course_deatails {
+    width: 80rem;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .title {
@@ -371,16 +393,16 @@ li, a {
 }
 
 .l-title-bar {
-    width: 20rem;
-    margin-right: 7rem;
+    width: 30rem;
+    padding-left: 10rem;
 }
 
 .r-title-bar {
-    overflow-y: hidden;
     display: flex;
     flex-direction: column;
     width: 50rem;
-    height: auto;
+    overflow-x: hidden;
+    overflow-y: visible;
 }
 
 .rubik-18-500 {
@@ -474,4 +496,248 @@ li, a {
     height: 10rem;
     transition: height 0.5s;
     transition-delay: 0.75s;
+}
+
+/* profile */
+.profile{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.wrapper-profile{
+    width: 80rem;
+    height: 41rem;
+    margin-top: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.left-wrap-pro{
+    width: 20rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+}
+.left-wrap-pro img{
+    cursor: pointer;
+    width: 16rem;
+    height: 16rem;
+    border-radius: 50%;
+}
+.left-wrap-pro .profile-name{
+    width: 100%;
+    height: 100%;
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.1em;
+}
+.profile-name a input{
+    text-decoration: none;
+    font-family: Rubik;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-align: center;
+    background: transparent;
+    border: none;
+}
+
+.right-wrap-pro{
+    width: 50rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    overflow-x: hidden;
+    overflow-y: visible;
+}
+.right-wrap-pro p{
+    font-family: Rubik;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.profile-form{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+form label{
+    padding-left: 0.4rem;
+    font-family: Rubik;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.profile-form input, .change-pass input{
+    border-radius: 0.5rem;
+    border: 2px solid #666;
+    font-family: Rubik;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-left: 1rem;
+}
+.profile-form .phone-number,.change-pass .phone-number{
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-avatar{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.profile-avatar label{
+    margin-bottom: .5rem;
+}
+.profile-avatar input{
+    border: none;
+    padding: 0;
+    border-radius: 0;
+}
+
+.profile-bio{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.bio-title{
+    width: 100%;
+    height: 3rem;
+    border-top-right-radius: 0.5rem;
+    border-top-left-radius: 0.5rem;
+    border: 2px solid #666;
+    font-family: Rubik;
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-left: 1rem;
+    cursor: pointer;
+    transition: 0.4s;
+}
+.bio-scroll{
+    display: none;
+}
+.bio-scroll.active{
+    border-bottom-left-radius: 0.5rem;    
+    border-bottom-right-radius: 0.5rem;
+    overflow: hidden;
+    display: block;
+    border-left:2px solid #666;
+    border-bottom: 2px solid #666;
+    border-right: 2px solid #666;
+    height: 10rem;
+}
+.bio-scroll.active textarea{
+    width: 100%;
+    border: none;
+    resize: none;
+    height: 100%;
+    font-family: Rubik;
+    font-size: 1.3rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.profile-button{
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    justify-content: end;
+    gap: 2rem;
+}
+.profile-button button{
+    width: 40%;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    border:none;
+    color: #FFF;
+    background: #5A49F8;
+    box-shadow: 0px 4px 61px 0px rgba(77, 71, 195, 0.40);
+    height: 3rem;
+    font-family: Rubik;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    
+}
+
+.change-pass .pass-title{
+    width: 100%;
+    height: 3rem;
+    border-top-right-radius: 0.5rem;
+    border-top-left-radius: 0.5rem;
+    border: 2px solid #666;
+    font-family: Rubik;
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-left: 1rem;
+    cursor: pointer;
+    transition: 0.4s;
+}
+.change-pass .scroll{
+    display: none;
+    overflow: hidden;
+}
+.change-pass .scroll.active{
+    padding: 1rem;
+    display: block;
+    overflow: hidden;
+    border-left:2px solid #666;
+    border-bottom: 2px solid #666;
+    border-right: 2px solid #666;
+    border-bottom-left-radius: 0.5rem;    
+    border-bottom-right-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;    
+}
+
+.change-pass .scroll.active .new-pass{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.new-pass .column{
+    width: 45%;
+}
+.new-pass .column input{
+    width: 100%;
+}
+.scroll.active button{
+    text-decoration: none;
+    border-radius: 0.5rem;
+    border:none;
+    color: #FFF;
+    background: #5A49F8;
+    box-shadow: 0px 4px 61px 0px rgba(77, 71, 195, 0.40);
+    height: 3rem;
+    font-family: Rubik;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 }
