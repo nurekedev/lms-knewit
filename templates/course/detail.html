@@ -17,6 +17,8 @@
             <ul>
                 {% for material in module.materials.all %}
                 <li>{{ material.material_title }}</li>
+
+
                 {% endfor %}
             </ul>
 
@@ -45,7 +47,6 @@
         <div class="materials-lector">
             <p class="rubik-18-500">{{ material.material_title }}</p>
             <div class="lector-main">
-                <img src="https://cdn-icons-png.flaticon.com/512/732/732212.png">
                 <p class="rubik-14-300">{{ material.body_text }}</p>
             </div>
         </div>

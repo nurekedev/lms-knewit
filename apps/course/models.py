@@ -55,6 +55,13 @@ class Module(models.Model):
     module_name = models.CharField(max_length=255)
     module_description = models.TextField()
     materials = models.ManyToManyField(Material)
+    created = models.DateTimeField(auto_now_add=True, blank=True)
+
+    class Meta:
+        ordering = ['created']
+
+
+
 
     def __str__(self):
         return f"{self.module_name} - {self.module_description}"
@@ -68,6 +75,10 @@ class Course(models.Model):
     course_name = models.CharField(max_length=100)
     slug = models.SlugField(max_length=250, unique_for_date='publish')
     image = models.ImageField(upload_to='images')
+
+    preview_image = models.ImageField(upload_to='images')
+    about_course = models.TextField()
+
     publish = models.DateTimeField(default=timezone.now())
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
