@@ -1,59 +1,121 @@
 {% extends "base.html" %}
 {% block title %}Profile Page{% endblock title %}
 {% block content %}
-    <style>
-    img{
-        width: 100px;
-        height: 100px;
-    }
-    </style>
-     <div>
-        <img src="{{ user.profile.avatar.url }} " style="cursor: pointer;"/>
-    </div>
-    {% if user_form.errors %}
-        <div role="alert">
-            <div>
-                {% for key, value in user_form.errors.items %}
-                    <strong>{{ value }}</strong>
-                {% endfor %}
-            </div>
-            <button type="button" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    {% endif %}
-    <div class="form-content">
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            <div>
+
+<div class="profile">
+    <div class="wrapper-profile">
+        <div class="left-wrap-pro">
+            <img src="{{ user.profile.avatar.url }} "/>
+            {% if user_form.errors %}
+            <div role="alert">
                 <div>
-                    <div>
-                        <label>First name:</label>
-                        {{ user_form.first_name }}
-                        <hr>
-
-                        <label>Last name:</label>
-                        {{ user_form.last_name }}
-                        <hr>
-
-                        <label>Phone number:</label>
-                        {{ user_form.phone_number }}
-                        <hr>
-                    </div>
-                    <hr>
-                    <div><a href="{% url 'password_change' %}">Change Password</a>
-                        <hr>
-                        <label>Change Avatar:</label>
-                        {{ profile_form.avatar }}
-                    </div>
-                    <hr>
-                    <label>Bio:</label> {{ profile_form.bio | truncatewords_html:30|safe}}
+                    {% for key, value in user_form.errors.items %}
+                    <strong>{{ value }}</strong>
+                    {% endfor %}
                 </div>
+                <button type="button" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-            <br><br>
-            <button type="submit">Save Changes</button>
-            <button type="reset">Reset</button>
-        </form>
+            {% endif %}
+
+        </div>
+        <div class="right-wrap-pro">
+            <p>Редактировать</p>
+            <form method="post" enctype="multipart/form-data" class="profile-form">
+                {% csrf_token %}
+
+
+                <div class="full-name">
+                    <div class="column">
+                        <label>Имя:</label>
+                        <a>{{ user_form.first_name }}</a>
+                    </div>
+
+                    <div class="column">
+                        <label>Фамилия:</label>
+                        <a>{{ user_form.last_name }}</a>
+                    </div>
+                </div>
+
+
+                <div class="phone-number">
+                    <label>Номер</label>
+                    {{ user_form.phone_number }}
+                </div>
+
+                <div class="profile-avatar">
+                    <label>Поменять аватар</label>
+                    {{ profile_form.avatar }}
+                </div>
+
+                <div class="profile-bio">
+                    <label class="bio-title">Информация о себе</label>
+                    <div class="bio-scroll">
+                        {{ profile_form.bio | truncatewords_html:30|safe}}
+                    </div>
+                </div>
+                <div class="profile-button">
+                    <button type="submit">Сохранить изменение</button>
+                    <button type="reset">Очистить</button>
+                </div>
+            </form>
+
+
+            <form method="post" class="change-pass">
+                {% csrf_token %}
+                <div class="pass-title">
+                    Поменять пароль
+                </div>
+                {% if form.errors %}
+                <div role="alert">
+                    <div id="form_errors">
+                        {% for key, value in form.errors.items %}
+                        <strong>{{ value }}</strong>
+                        {% endfor %}
+                    </div>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                {% endif %}
+
+                <div class="scroll">
+                    <form class="phone-number">
+                        <label>Старый пароль</label>
+                        <input type="password" name="old_password" autocomplete="new-password" required
+                               id="id_old_password"
+                               placeholder="Enter Old Password"/>
+                    </form>
+                    <div class="new-pass">
+                        <div class="column">
+                            <label>Новый пароль</label>
+                            <input type="password" name="new_password1" autocomplete="new-password"
+                                   required id="id_new_password1" placeholder="Enter New Password"/>
+                        </div>
+                        <div class="column">
+                            <label>Повторите новый пароль</label>
+                            <input type="password" name="new_password2" autocomplete="new-password"
+                                   required id="id_new_password2" placeholder="Confirm New Password"/>
+                        </div>
+                    </div>
+                    <button type="submit" id="reset">Изменить пароль</button>
+                </div>
+            </form>
+        </div>
     </div>
+</div>
+<script>
+    let toogle = document.querySelector('.pass-title');
+    let scroll = document.querySelector('.scroll');
+    toogle.onclick = function () {
+        scroll.classList.toggle('active');
+    }
+    let toogle2 = document.querySelector('.bio-title');
+    let scroll2 = document.querySelector('.bio-scroll');
+    toogle2.onclick = function () {
+        scroll2.classList.toggle('active');
+    }
+</script>
 
 {% endblock content %}

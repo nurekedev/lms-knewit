@@ -7,6 +7,7 @@ app_name = 'course'
 
 urlpatterns = [
     path('', views.home_page, name='home'),
+    path('enrollments/', views.enrollment_page, name='enrollments'),
     path('<int:day>/<int:month>/<int:year>/<slug:course_data>/', views.course_detail, name='detailed_info'),
     path('contact/', views.contact, name='contact'),
     path('about/', views.about, name='about'),

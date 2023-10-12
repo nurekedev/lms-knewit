@@ -1,11 +1,45 @@
 {% extends 'base.html' %}
 {% block content %}
 
-    <form method="post">
-        {% csrf_token %}
-        {{ form_data.as_ul }}
-        <button class="primary-btn" type="submit"> Login</button>
-    </form>
+<!--    <form method="post">-->
+<!--        {% csrf_token %}-->
+<!--        {{ form_data.as_p }}-->
+<!--        <button class="primary-btn" type="submit"> Login</button>-->
+<!--    </form>-->
+
+<div class="container-login">
+    <div class="main_text">
+        <b>Lorem ipsum</b> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+        laborum.
+    </div>
+    <div class="login">
+        <h2 style="font-size: 40px;font-family: Rubik; font-weight: 500;">
+            Авторизация
+        </h2>
+        <form method="post" class="login-form">
+            {% csrf_token %}
+            <label for="username">
+                <input type="email" name="username" id="username" placeholder="Email"
+                       value="{{ form_data.username.value }}">
+            </label>
+
+            <label for="password">
+                <input type="password" id="password" name="password" placeholder="Пароль"
+                       value="{{ form_data.password.value }}">
+            </label>
+
+            <label for="remember_me">
+                Запомнить вход:
+                <input type="checkbox" id="remember_me" name="remember_me" value="{{ form_data.remember_me.value }}">
+            </label>
+            <button type="submit">Авторизация</button>
+        </form>
+
+    </div>
+</div>
 
 
 {% endblock content %}

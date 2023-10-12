@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %} Главная {% endblock title %}
+{% block content %}
+
+
+<section class="content">
+    <h3 class="mycourses__title">
+        Мои курсы
+    </h3>
+    {% for course in user_courses %}
+    <div class="mycourses-box">
+
+        <img src="{{ course.course.image.url }}" alt="coursephoto"/>
+        <div class="mycourses-box-content">
+            <h4 class="mycourses-box-content__title">{{ course.course.course_name }}</h4>
+            <p class="mycourses-box-content__teacher-name">{{ course.course.teacher.first_name }} {{ course.course.teacher.last_name }}</p>
+            <h4 class="mycourses-box-content__progress"></h4>
+            <div class="mycourses-box-content__progress-line">
+                <div></div>
+            </div>
+        </div>
+        <a href="{{ course.course.get_absolute_url }}" style="cursor: pointer">Открыть курс</a>
+    </div>
+    {% empty %}
+    Нет активных курсов
+    {% endfor %}
+
+
+</section>
+
+
+{% endblock content %}
+
+
