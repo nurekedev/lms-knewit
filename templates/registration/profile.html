@@ -55,62 +55,21 @@
                         {{ profile_form.bio | truncatewords_html:30|safe}}
                     </div>
                 </div>
+
+                <div class="profile_button" style="text-align: right">
+                    <a href="{% url 'password_change'%}">Изменить пароль</a>
+                </div>
+
                 <div class="profile-button">
                     <button type="submit">Сохранить изменение</button>
                     <button type="reset">Очистить</button>
-                </div>
-            </form>
-
-
-            <form method="post" class="change-pass">
-                {% csrf_token %}
-                <div class="pass-title">
-                    Поменять пароль
-                </div>
-                {% if form.errors %}
-                <div role="alert">
-                    <div id="form_errors">
-                        {% for key, value in form.errors.items %}
-                        <strong>{{ value }}</strong>
-                        {% endfor %}
-                    </div>
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                {% endif %}
-
-                <div class="scroll">
-                    <form class="phone-number">
-                        <label>Старый пароль</label>
-                        <input type="password" name="old_password" autocomplete="new-password" required
-                               id="id_old_password"
-                               placeholder="Enter Old Password"/>
-                    </form>
-                    <div class="new-pass">
-                        <div class="column">
-                            <label>Новый пароль</label>
-                            <input type="password" name="new_password1" autocomplete="new-password"
-                                   required id="id_new_password1" placeholder="Enter New Password"/>
-                        </div>
-                        <div class="column">
-                            <label>Повторите новый пароль</label>
-                            <input type="password" name="new_password2" autocomplete="new-password"
-                                   required id="id_new_password2" placeholder="Confirm New Password"/>
-                        </div>
-                    </div>
-                    <button type="submit" id="reset">Изменить пароль</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
 <script>
-    let toogle = document.querySelector('.pass-title');
-    let scroll = document.querySelector('.scroll');
-    toogle.onclick = function () {
-        scroll.classList.toggle('active');
-    }
+
     let toogle2 = document.querySelector('.bio-title');
     let scroll2 = document.querySelector('.bio-scroll');
     toogle2.onclick = function () {

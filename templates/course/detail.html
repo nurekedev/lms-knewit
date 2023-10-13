@@ -42,11 +42,16 @@
                 <div class="lector-main">
                     <img src="https://cdn-icons-png.flaticon.com/512/732/732212.png">
                     <p class="rubik-14-300">{{ material.body_text }}</p>
+                    <input type="checkbox" class="lecture-checkbox" data-material-id="{{ material.id }}"> Mark as
+                    Completed
+
                 </div>
             </div>
             {% endif %}
             {% endfor %}
             {% include 'course/pagination.html' with page=materials_for_course%}
+
+
         </div>
     </div>
 </div>
@@ -60,6 +65,9 @@
     module.onclick = function () {
         moduleAll.classList.toggle('active');
     }
+
+    const lectureCheckboxes = document.querySelectorAll('.lecture-checkbox');
+
 </script>
 
 

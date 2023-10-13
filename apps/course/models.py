@@ -59,10 +59,6 @@ class Module(models.Model):
 
     class Meta:
         ordering = ['created']
-
-
-
-
     def __str__(self):
         return f"{self.module_name} - {self.module_description}"
 

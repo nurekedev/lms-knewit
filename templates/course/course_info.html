@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %} Титул {% endblock title %}
+{% block content %}
+<div class="details-cont">
+    <div class="course_deatails">
+        <div class="l-title-bar">
+            <div class="title">
+                <img src="{{ course_data.image.url }}" alt="coursephoto"/>
+
+                <p class="rubik-18-500">{{ course_data.course_name }}</p>
+                <p class="rubik-14-300">{{ course_data.teacher.first_name }} {{ course_data.teacher.last_name }}</p>
+            </div>
+            <h3>Modules: </h3>
+            {% for module in modules_for_course %}
+            <div class="title-modules">
+
+                <p class="rubik-16-400">{{ module.module_name }}</p>
+
+
+            </div>
+            {% endfor %}
+
+        </div>
+        <div class="r-title-bar">
+            <img src="{{ course_data.preview_image.url }}" alt="coursephoto"/>
+            <h3>О курсе</h3>
+            <p>{{course_data.about_course}}</p>
+            <button>Приобрести курс</button>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
