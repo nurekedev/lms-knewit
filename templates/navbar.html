@@ -3,8 +3,16 @@
     <nav class="menu">
         <ul>
             {% if user.is_authenticated %}
-            <li><a href="{% url 'users-profile' %}">Профиль</a></li>
-            <li><a href="{% url 'course:enrollments' %}">Мои курсы</a></li>
+            <div class="menu-file">
+                <img src="{{ user.profile.avatar.url }}" class="menu-logo">
+                <a>sdvsv</a>
+                <a>afsd</a>
+                <img src="../static/images/free-icon-arrow-down-sign-to-navigate-32195.png"/>
+            </div>
+            <div class="menu-hidden">
+                <p><a href="{% url 'users-profile' %}">Профиль</a></p>
+                <p><a href="{% url 'course:enrollments' %}">Мои курсы</a></p>
+            </div>
             <li><a href="{% url 'logout' %}" class="logout">Выйти</a></li>
             {% else %}
             <li><a href="{% url 'login' %}" class="login">Войти</a></li>
@@ -12,3 +20,12 @@
         </ul>
     </nav>
 </header>
+<script>
+    let toggle = document.querySelector('.menu-file');
+    let hidden = document.querySelector('.menu-hidden');
+    toggle.onclick = function(){
+        hidden.classList.toggle('active')
+    }
+</script>
+<!-- <li><a href="{% url 'users-profile' %}">Профиль</a></li>
+<li><a href="{% url 'course:enrollments' %}">Мои курсы</a></li> -->

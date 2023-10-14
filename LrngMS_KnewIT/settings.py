@@ -81,9 +81,9 @@ WSGI_APPLICATION = 'LrngMS_KnewIT.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'kms',
-        'USER': 'nurdev',
-        'PASSWORD': '12345',
+        'NAME': 'lms3',
+        'USER': 'postgres',
+        'PASSWORD': 'Kontra06',
         'HOST': 'localhost',
         'PORT': '5432'
     }

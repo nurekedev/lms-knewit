@@ -82,17 +82,52 @@ li, a {
     font-weight: 500;
     line-height: normal;
 }
+.menu-file{
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+.menu-file .menu-logo{
+    height: 2.5rem;
+    border-radius: 50%;
+}
+.menu-hidden{
+    display: none;
+}
+.menu-hidden.active{
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    height: 4rem;
+    position: absolute;
+    margin-top: 7rem;
+    border-left: 1px solid #AEAEAE;
+    border-bottom: 1px solid #AEAEAE;
+}
+.menu-hidden.active p{
+    border-bottom: 1px solid #AEAEAE;
+    border-top: 1px solid #AEAEAE;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+    background-color: #fff;
+}
 
 .footer {
+    width: 100%;
+    height: 3rem;
     position: absolute;
     bottom: 0;
-    width: 100%;
 }
 
 .footer-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 0 2rem;
 }
 
 .footer-wrapper__left {
@@ -366,46 +401,72 @@ li, a {
     line-height: normal;
 }
 
-/* Login page */
-.details-cont {
-    width: 100%;
+/* details-preview */
+.details-cont{
+    width: 80%;
+    margin: 7rem auto 0;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    height: calc(100% - 6rem);
 }
-
-.course_deatails {
-    width: 80rem;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.l-title-bar{
+    width: 25rem;
+    padding-left: 8rem;
 }
-
 .title {
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
 }
-
 .title img {
-    width: 7rem;
-    height: 7rem;
+    width: 10rem;
+    height: 10rem;
     margin-bottom: 1rem;
 }
-
-.l-title-bar {
-    width: 30rem;
-    padding-left: 10rem;
-}
-
-.r-title-bar {
+.r-title-bar{
+    width: 60rem;
+    height: 47rem;
     display: flex;
     flex-direction: column;
-    width: 50rem;
     overflow-x: hidden;
     overflow-y: visible;
 }
+.preview_image{
+    margin-bottom: 2rem;
+}
+.r-title-bar h3{
+    font-family: Rubik;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 0 0 0.5rem 0.5rem;
+}
+.r-title-bar .preview-p{
+    font-family: Rubik;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 0 0 2rem 0;
+}
+.r-title-bar .preview-btn{
+    width: 30%;
+    margin-left: 70%;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    border: none;
+    color: #FFF;
+    background: #5A49F8;
+    box-shadow: 0px 4px 61px 0px rgba(77, 71, 195, 0.40);
+    height: 2.5rem;
+    font-family: Rubik;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+/* details */
 .rubik-18-500 {
     font-family: Rubik;
     font-size: 1.125rem;
@@ -413,7 +474,6 @@ li, a {
     font-weight: 500;
     line-height: normal;
 }
-
 .rubik-14-300 {
     font-family: Rubik;
     font-size: 0.875rem;
@@ -421,7 +481,6 @@ li, a {
     font-weight: 300;
     line-height: normal;
 }
-
 .rubik-16-400 {
     font-family: Rubik;
     font-size: 1rem;
@@ -429,25 +488,14 @@ li, a {
     font-weight: 400;
     line-height: normal;
 }
-
-.materials-name {
-    margin-top: 1.5rem;
-    margin-bottom: 1rem;
+.title-module {
+    height: 1.25rem;
+    transition: height 0.5s;
+    transition-delay: 0.75s;
 }
-
-.materials-name li {
-    font-family: Rubik;
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
-    margin-bottom: 1rem;
-}
-
 .materials-title {
     margin-bottom: 2.25rem;
 }
-
 .materials-title p {
     font-family: Rubik;
     font-size: 1.875rem;
@@ -455,50 +503,95 @@ li, a {
     font-weight: 700;
     line-height: normal;
 }
-
-.materials-video {
-    margin-bottom: 3rem;
-}
-
 .materials-video iframe {
-    width: 50rem;
-    height: 25rem;
+    width: 100%;
+    height: 30rem;
 }
 
-.lector-main img {
-    width: 7rem;
+/*mark-check*/
+.mark-cont{
+    display: flex;
+    align-items: center;
+    justify-content: end;
 }
-
-.materials-lector .lector-main p {
-    margin-bottom: 1rem;
+.mark-cont label{
+    margin-left: 0.5rem;
 }
+.switch {
+    display: inline-block;
+    height: 34px;
+    position: relative;
+    width: 60px;
+  }
+  
+  .switch input {
+    display:none;
+  }
+  
+  .slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    background-color: #fff;
+    bottom: 4px;
+    content: "";
+    height: 26px;
+    left: 4px;
+    position: absolute;
+    transition: .4s;
+    width: 26px;
+  }
+  
+  input:checked + .slider {
+    background-color: #66bb6a;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(26px);
+  }
+  
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
 
-.materials-lector {
-    height: 1.375rem;
-    transition: height 0.5s;
-    transition-delay: 0.75s;
-    overflow: hidden;
+
+/*pagination*/
+.step-links{
+    display: flex;
+    align-items: center;
 }
-
-.materials-lector.active {
-    height: 15rem;
-    transition: height 0.5s;
-    transition-delay: 0.75s;
+.current{
+    margin-right: 1rem;
 }
-
-.title-module {
-    overflow: hidden;
-    height: 1.25rem;
-    transition: height 0.5s;
-    transition-delay: 0.75s;
+.p-btn{
+    width: 6rem;
+    height: 3rem;
+    background-color: #5A49F8;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-
-.title-module.active {
-    height: 10rem;
-    transition: height 0.5s;
-    transition-delay: 0.75s;
+.p-btn a{
+    font-family: Rubik;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: #FFF;
 }
-
 /* profile */
 .profile {
     display: flex;
