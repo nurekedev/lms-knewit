@@ -5,9 +5,8 @@
             {% if user.is_authenticated %}
             <div class="menu-file">
                 <img src="{{ user.profile.avatar.url }}" class="menu-logo">
-                <a>sdvsv</a>
-                <a>afsd</a>
-                <img src="../static/images/free-icon-arrow-down-sign-to-navigate-32195.png"/>
+                <a>{{ user.first_name }}</a>
+                <a>{{user.last_name}}</a>
             </div>
             <div class="menu-hidden">
                 <p><a href="{% url 'users-profile' %}">Профиль</a></p>
@@ -23,7 +22,7 @@
 <script>
     let toggle = document.querySelector('.menu-file');
     let hidden = document.querySelector('.menu-hidden');
-    toggle.onclick = function(){
+    toggle.onclick = function () {
         hidden.classList.toggle('active')
     }
 </script>
